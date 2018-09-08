@@ -138,6 +138,7 @@ class Perceptron(DataAccessObject):
                    + str(self.threshold) + " | "
                    )
 
+
 dao = DataAccessObject()
 perceptron = Perceptron()
 
