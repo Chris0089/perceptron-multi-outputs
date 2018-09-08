@@ -15,17 +15,27 @@ class DataAccessObject:
         self.get_data()
 
     def get_data(self):
-        file = open(FILENAME, "r")
-        next(file)
+        file = open(INPUTFILE, "r")
+        # next(file)
         for line in file:
             fields = line.split(" ")
             size = len(fields)
-            self.desiredOutput.append(float(fields[0]))
             if not self.inputData:
-                for value in range(1, size):
+                for value in range(0, size):
                     self.inputData.append([])
-            for value in range(1, size):
-                self.inputData[value-1].append(float(fields[value]))
+            for value in range(0, size):
+                self.inputData[value].append(float(fields[value]))
+        file = open(DESIREDFILE, "r")
+        # next(file)
+        for line in file:
+            fields = line.split(" ")
+            size = len(fields)
+            if not self.desiredOutput:
+                for value in range(0, size):
+                    self.desiredOutput.append([])
+            for value in range(0, size):
+                self.desiredOutput[value].append(float(fields[value]))
+        x=1
 
 
 class Perceptron(DataAccessObject):
@@ -116,5 +126,5 @@ class Perceptron(DataAccessObject):
                    )
 
 dao = DataAccessObject()
-perceptron = Perceptron()
+#perceptron = Perceptron()
 
