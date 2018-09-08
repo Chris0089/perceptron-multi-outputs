@@ -116,27 +116,21 @@ class Perceptron(DataAccessObject):
 
     def main_algorithm(self):
         self.calculate_output()
-        #self.print_data()
+        self.print_data()
         while not self.is_the_desired_output():
             print(self.iteration)
             self.training()
             self.calculate_output()
-            #self.print_data()
+            self.print_data()
         print("Finished")
 
     def print_data(self):
         print("Iteraciones = " + str(self.iteration))
         print("ETA = " + str(ETA))
-        print("y   | d   | x1  | x2  | w1       | w2     | umbral    |")
-        for row in range (0, self.inputSize):
-            print( str(self.output[row]) + " | "
-                   + str(self.desiredOutput[row]) + " | "
-                   + str(self.inputData[0][row]) + " | "
-                   + str(self.inputData[1][row]) + " | "
-                   + str(self.weightData[0][row]) + " | "
-                   + str(self.weightData[1][row]) + " | "
-                   + str(self.threshold) + " | "
-                   )
+        print("Salida deseada:")
+        print(self.desiredOutput)
+        print("Salidas:")
+        print(self.output)
 
 
 dao = DataAccessObject()
